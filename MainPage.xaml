@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
 
         <Label
-            x:Name="dopes"
+            x:Name="lols"
             Grid.Row="0" Grid.Column="0" Margin="0,20,0,0" Padding="7"
             BackgroundColor="Red" TextColor="White"
             VerticalOptions="Start" HorizontalOptions="Center" Text="LOL/s:"
