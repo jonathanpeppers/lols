@@ -26,6 +26,6 @@ public class Helper {
 		int childCount = layout.getChildCount();
 		if (childCount > 500)
 			layout.removeViewAt(childCount - 2);
-		layout.addView(textView);
+		layout.addView(textView, 0);
 	}
 }
