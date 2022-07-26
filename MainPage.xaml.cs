@@ -44,13 +44,14 @@ public partial class MainPage : ContentPage
 			};
 			AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.PositionProportional);
 			AbsoluteLayout.SetLayoutBounds(label, new Rect(random.NextDouble(), random.NextDouble(), 80, 24));
-			await Dispatcher.DispatchAsync(() =>
+			Dispatcher.Dispatch(() =>
 			{
 				if (absolute.Children.Count >= Max)
 					absolute.Children.RemoveAt(0);
 				absolute.Children.Add(label);
 				count++;
 			});
+			await Task.Delay(1);
 		}
 
 		stopwatch.Stop();
