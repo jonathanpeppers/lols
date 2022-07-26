@@ -1,5 +1,6 @@
 using Android.Graphics;
 using Stopwatch = System.Diagnostics.Stopwatch;
+using Helper = Com.Microsoft.Lols.Helper;
 
 namespace lols;
 
@@ -52,24 +53,11 @@ public class MainActivity : Activity
 
 		while (count < 5000)
 		{
-			var label = new TextView(this)
-			{
-				Text = "lol?",
-				Rotation = random.NextSingle() * 360
-			};
-			label.SetTextColor(new Color(random.Next(byte.MaxValue), random.Next(byte.MaxValue), random.Next(byte.MaxValue)));
-			label.LayoutParameters = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WrapContent, RelativeLayout.LayoutParams.WrapContent)
-			{
-				LeftMargin = random.Next(width),
-				TopMargin = random.Next(height),
-			};
+			var color = new Color(random.Next(byte.MaxValue), random.Next(byte.MaxValue), random.Next(byte.MaxValue));
+			var label = Helper.CreateTextView(this, color, random.NextSingle() * 360, random.Next(width), random.Next(height));
 			RunOnUiThread(() =>
 			{
-				var childCount = layout.ChildCount;
-				if (childCount > Max)
-					layout.RemoveViewAt (childCount - 2); // - 1 is the label on top
-				layout.AddView (label, 0);
-				
+				Helper.Add(layout, label);
 				count++;
 			});
 			await Task.Delay(1);
