@@ -1,6 +1,7 @@
 using Android.Graphics;
-using Stopwatch = System.Diagnostics.Stopwatch;
+using System.Globalization;
 using Helper = Com.Microsoft.Lols.Helper;
+using Stopwatch = System.Diagnostics.Stopwatch;
 
 namespace lols;
 
@@ -32,7 +33,7 @@ public class MainActivity : Activity
 	void OnTimer(object? sender, System.Timers.ElapsedEventArgs e)
 	{
 		double avg = count / stopwatch.Elapsed.TotalSeconds;
-		string text = "LOL/s: " + avg;
+		string text = "LOL/s: " + avg.ToString("0.00", CultureInfo.InvariantCulture);
 		RunOnUiThread(() => UpdateText(text));
 	}
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.Maui.Layouts;
 using System.Diagnostics;
+using System.Globalization;
 
 namespace lols;
 
@@ -24,7 +25,7 @@ public partial class MainPage : ContentPage
 	void OnTimer(object sender, System.Timers.ElapsedEventArgs e)
 	{
 		double avg = count / stopwatch.Elapsed.TotalSeconds;
-		string text = "LOL/s: " + avg;
+		string text = "LOL/s: " + avg.ToString("0.00", CultureInfo.InvariantCulture);
 		Dispatcher.Dispatch(() => UpdateText(text));
 	}
 
