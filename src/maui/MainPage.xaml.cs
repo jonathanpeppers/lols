@@ -51,7 +51,7 @@ public partial class MainPage : ContentPage
 				absolute.Children.Add(label);
 				count++;
 			});
-			await Task.Delay(1);
+			await Task.Delay(5);
 		}
 
 		stopwatch.Stop();
