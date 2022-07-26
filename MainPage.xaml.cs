@@ -5,6 +5,7 @@ namespace lols;
 
 public partial class MainPage : ContentPage
 {
+	const int Max = 500;
 	int count = 0;
 	readonly System.Timers.Timer timer = new System.Timers.Timer(500);
 	readonly Stopwatch stopwatch = new Stopwatch();
@@ -45,6 +46,8 @@ public partial class MainPage : ContentPage
 			AbsoluteLayout.SetLayoutBounds(label, new Rect(random.NextDouble(), random.NextDouble(), 80, 24));
 			await Dispatcher.DispatchAsync(() =>
 			{
+				if (absolute.Children.Count >= Max)
+					absolute.Children.RemoveAt(0);
 				absolute.Children.Add(label);
 				count++;
 			});
