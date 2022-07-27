@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Random;
@@ -17,6 +18,7 @@ import java.util.TimerTask;
 public class MainActivity extends AppCompatActivity {
 
 	final int Max = 500;
+	final DecimalFormat format = new DecimalFormat("0.00");
 	int count = 0;
 	TextView lols;
 	RelativeLayout layout;
@@ -47,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 	void onTimer() {
 		Duration duration = Duration.between(start, Instant.now());
 		double avg = (double)count / (double)duration.getSeconds();
-		String text = "LOL/s: " + avg;
+		String text = "LOL/s: " + format.format(avg);
 		runOnUiThread(() -> lols.setText(text));
 	}
 
