@@ -14,6 +14,7 @@ import java.time.Instant;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 	TextView lols;
 	RelativeLayout layout;
 	Timer timer;
-	Instant start;
+	long start;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,15 +41,15 @@ public class MainActivity extends AppCompatActivity {
 			}
 		}, 0, 500);
 
-		start = Instant.now();
+		start = System.nanoTime();
 
 		Thread thread = new Thread(() -> runTest());
 		thread.start();
 	}
 
 	void onTimer() {
-		Duration duration = Duration.between(start, Instant.now());
-		double avg = (double)count / (double)duration.getSeconds();
+		double duration = (double)(System.nanoTime() - start) / 1_000_000_000;
+		double avg = (double)count / duration;
 		String text = "LOL/s: " + format.format(avg);
 		runOnUiThread(() -> lols.setText(text));
 	}
