@@ -8,7 +8,6 @@ namespace lols;
 [Activity(Label = "@string/app_name", MainLauncher = true)]
 public class MainActivity : Activity
 {
-	const int Max = 500;
 	int count = 0;
 	readonly System.Timers.Timer timer = new System.Timers.Timer(500);
 	readonly Stopwatch stopwatch = new Stopwatch();
@@ -39,7 +38,7 @@ public class MainActivity : Activity
 
 	void UpdateText(string text) => lols!.Text = text;
 
-	async void RunTest()
+	void RunTest()
 	{
 		var random = Random.Shared;
 		int width = layout.Width;
@@ -61,7 +60,7 @@ public class MainActivity : Activity
 				Helper.Add(layout, label);
 				count++;
 			});
-			await Task.Delay(1);
+			Thread.Sleep(1);
 		}
 
 		stopwatch.Stop();

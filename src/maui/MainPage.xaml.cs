@@ -31,7 +31,7 @@ public partial class MainPage : ContentPage
 
 	void UpdateText(string text) => lols.Text = text;
 
-	async void RunTest()
+	void RunTest()
 	{
 		var random = Random.Shared;
 
@@ -52,7 +52,8 @@ public partial class MainPage : ContentPage
 				absolute.Children.Add(label);
 				count++;
 			});
-			await Task.Delay(5);
+			//NOTE: plain Android we could put 1
+			Thread.Sleep(2);
 		}
 
 		stopwatch.Stop();
