@@ -3,6 +3,14 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\src\\peppers.jks')
+            storePassword 'peppers'
+            keyAlias 'peppers'
+            keyPassword 'peppers'
+        }
+    }
     namespace 'com.microsoft.javalols'
     compileSdk 32
 
@@ -17,6 +25,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
