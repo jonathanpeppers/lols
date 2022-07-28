@@ -1,4 +1,3 @@
-using Android.Graphics;
 using System.Globalization;
 using Helper = Com.Microsoft.Lols.Helper;
 using Stopwatch = System.Diagnostics.Stopwatch;
@@ -13,6 +12,7 @@ public class MainActivity : Activity
 	readonly Stopwatch stopwatch = new Stopwatch();
 	TextView lols;
 	RelativeLayout layout;
+	LolsView lolsView;
 
 	protected override void OnCreate(Bundle? savedInstanceState)
 	{
@@ -21,6 +21,7 @@ public class MainActivity : Activity
 		SetContentView(Resource.Layout.activity_main);
 		lols = RequireViewById<TextView>(Resource.Id.lols);
 		layout = RequireViewById<RelativeLayout>(Resource.Id.layout);
+		layout.AddView(lolsView = new LolsView (this), 0);
 
 		timer.Elapsed += OnTimer;
 
@@ -40,7 +41,6 @@ public class MainActivity : Activity
 
 	void RunTest()
 	{
-		var random = Random.Shared;
 		int width = layout.Width;
 		int height = layout.Height;
 
@@ -53,13 +53,8 @@ public class MainActivity : Activity
 
 		while (count < 5000)
 		{
-			var color = new Color(random.Next(byte.MaxValue), random.Next(byte.MaxValue), random.Next(byte.MaxValue));
-			var label = Helper.CreateTextView(this, color, random.NextSingle() * 360, random.Next(width), random.Next(height));
-			RunOnUiThread(() =>
-			{
-				Helper.Add(layout, label);
-				count++;
-			});
+			lolsView.AddLol(width, height);
+			count++;
 			Thread.Sleep(1);
 		}
 
