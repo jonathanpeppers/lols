@@ -5,14 +5,8 @@ A .NET MAUI performance test similar to:
 * https://github.com/maxim-saplin/dopetest_xamarin
 * https://github.com/unoplatform/performance/tree/master/src/dopes/DopeTestMaui
 
-## MAUI Android Pixel 5
+See the [main branch](https://github.com/jonathanpeppers/lols) for other numbers & details.
 
-![MAUI Android Pixel 5](docs/maui.png)
+## .NET 6 Android Pixel 5 using Canvas
 
-## .NET 6 Android Pixel 5
-
-![.NET 6 Android Pixel 5](docs/android.png)
-
-## Java Android Pixel 5
-
-![Java Android Pixel 5](docs/java.png)
+![.NET 6 Android Pixel 5](docs/canvas.png)

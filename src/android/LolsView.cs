@@ -3,46 +3,36 @@ using Android.Graphics;
 using Android.Util;
 using Android.Views;
 using System.Collections.Concurrent;
+using Helper = Com.Microsoft.Lols.Helper;
 
 namespace lols
 {
 	class LolsView : View
 	{
-		readonly BlockingCollection<Lol> lols = new();
-		readonly float TextSize;
+		readonly ConcurrentQueue<Lol> lols = new();
+		readonly Paint paint = new();
 
 		public LolsView(Context context) : base(context)
 		{
 			ArgumentNullException.ThrowIfNull(context.Resources);
-			TextSize = TypedValue.ApplyDimension(ComplexUnitType.Sp, 14, context.Resources.DisplayMetrics);
+			paint.TextSize = TypedValue.ApplyDimension(ComplexUnitType.Sp, 14, context.Resources.DisplayMetrics);
 		}
 
 		public void AddLol(int width, int height)
 		{
 			if (lols.Count >= 500)
 			{
-				lols.Take();
+				lols.TryDequeue(out _);
 			}
-			lols.Add(new Lol(width, height));
+			lols.Enqueue(new Lol(width, height));
 			Invalidate();
 		}
 
 		protected override void OnDraw(Canvas? canvas)
 		{
-			base.OnDraw(canvas);
-
-			if (canvas == null)
-				return;
-
-			var paint = new Paint();
-			paint.TextSize = TextSize;
 			foreach (var lol in lols)
 			{
-				paint.Color = lol.Color;
-				canvas.Save();
-				canvas.Rotate(lol.Rotation, lol.X, lol.Y);
-				canvas.DrawText("lol?", lol.X, lol.Y, paint);
-				canvas.Restore();
+				Helper.Draw(canvas, paint, lol.Color, lol.Rotation, lol.X, lol.Y);
 			}
 		}
 
@@ -54,7 +44,7 @@ namespace lols
 				Rotation = random.NextSingle() * 360;
 				X = random.Next(width);
 				Y = random.Next(height);
-				Color = new Color(random.Next(byte.MaxValue), random.Next(byte.MaxValue), random.Next(byte.MaxValue));
+				Color = (int)(0xFF000000 | random.Next(0xFFFFFF));
 			}
 
 			public int X { get; set; }
@@ -63,7 +53,7 @@ namespace lols
 
 			public float Rotation { get; set; }
 
-			public Color Color { get; set; }
+			public int Color { get; set; }
 		}
 	}
 }

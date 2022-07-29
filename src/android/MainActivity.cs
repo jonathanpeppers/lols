@@ -1,5 +1,4 @@
 using System.Globalization;
-using Helper = Com.Microsoft.Lols.Helper;
 using Stopwatch = System.Diagnostics.Stopwatch;
 
 namespace lols;
@@ -51,11 +50,13 @@ public class MainActivity : Activity
 			height = layout.Height;
 		}
 
-		while (count < 5000)
+		while (count < 100000)
 		{
 			lolsView.AddLol(width, height);
 			count++;
-			Thread.Sleep(1);
+
+			if (count % 256 == 0)
+				Thread.Sleep(1);
 		}
 
 		stopwatch.Stop();
