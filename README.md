@@ -33,7 +33,7 @@ things to fix when doing this:
 
 ~327 per second in .NET 6 MAUI:
 
-<img src="docs/maui.png" width="100" />
+<img src="docs/maui.png" width="200" />
 
 Note that I was getting around 397 already in .NET 7 MAUI.
 
@@ -41,19 +41,19 @@ Note that I was getting around 397 already in .NET 7 MAUI.
 
 ~594 per second in .NET 6:
 
-<img src="docs/android.png" width="100" />
+<img src="docs/android.png" width="200" />
 
 ## Java Android Pixel 5
 
 ~682 per second using straight Java:
 
-<img src="docs/java.png" width="100" />
+<img src="docs/java.png" width="200" />
 
 ## How does Flutter compare?
 
 A reported number is 12,255 per second:
 
-<img src="https://raw.githubusercontent.com/maxim-saplin/dopetest_flutter/master/Screenshot_20200609-184950.jpg" width="100" />
+<img src="https://raw.githubusercontent.com/maxim-saplin/dopetest_flutter/master/Screenshot_20200609-184950.jpg" width="200" />
 
 Note that the test may not be exactly the same -- or running on the
 same device.
@@ -83,7 +83,7 @@ If I were to reproduce this same logic in C#:
 
 This results in a *completely ridiculous* ~152,661 per second:
 
-<img src="https://github.com/jonathanpeppers/lols/raw/canvas/docs/canvas.png" width="100" />
+<img src="https://github.com/jonathanpeppers/lols/raw/canvas/docs/canvas.png" width="200" />
 
 Thus, I think measuring the LOLs per second with this UI paradigm
 isn't actually useful or measuring anything. Measuring how many times
