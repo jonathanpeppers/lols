@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="lols.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    Title="Xamarin.Forms 5"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="Black">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="55" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <AbsoluteLayout
+            x:Name="absolute"
+            Grid.Row="0"
+            Grid.RowSpan="2"
+            Grid.Column="0" />
+
+        <Label
+            x:Name="lols"
+            Grid.Row="0"
+            Grid.Column="0"
+            Margin="0,20,0,0"
+            Padding="7"
+            BackgroundColor="Red"
+            HorizontalOptions="Center"
+            Text="LOL/s:"
+            TextColor="White"
+            VerticalOptions="Start" />
+    </Grid>
+
+</ContentPage>

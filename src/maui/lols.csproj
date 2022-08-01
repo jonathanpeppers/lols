@@ -31,7 +31,7 @@
 		<SupportedOSPlatformVersion>21.0</SupportedOSPlatformVersion>
 		<AndroidPackageFormat>apk</AndroidPackageFormat>
 		<!-- Update if you want to run on emulator, etc. -->
-		<RuntimeIdentifier>android-arm64</RuntimeIdentifier>
+		<!--<RuntimeIdentifier>android-arm64</RuntimeIdentifier>-->
 	</PropertyGroup>
 
 	<PropertyGroup Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">

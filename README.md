@@ -13,9 +13,10 @@ In many ways, this test is a bit dubious, but it is worthwhile
 comparing three types of apps that use the same underlying Android
 stack and `Android.Widget.TextView`:
 
-1. .NET MAUI app - the `Label` class is a cross-platform layer over `TextView`
-2. .NET 6 Android app - use `TextView` directly, but with the interop overhead of calling from C# into Java
-3. Java Android app - use `TextView` directly, without any C# to Java interop
+1. Xamarin.Forms 5 app - the `Label` class is a cross-platform layer over `TextView`, using an older Mono runtime & BCL
+2. .NET MAUI app - the `Label` class is a cross-platform layer over `TextView`, using the latest runtime & BCL
+3. .NET 6 Android app - use `TextView` directly, but with the interop overhead of calling from C# into Java
+4. Java Android app - use `TextView` directly, without any C# to Java interop
 
 Using these three apps, I think we have a reasonable estimate of what
 the overhead of using .NET (and .NET MAUI) comparing against the Java app.
@@ -29,7 +30,15 @@ things to fix when doing this:
 * https://github.com/dotnet/maui/pull/8034
 * https://github.com/dotnet/maui/pull/8250
 
-## MAUI Android Pixel 5
+## Xamarin.Forms 5 Pixel 5
+
+~179 per second in Xamarin.Forms 5:
+
+<img src="docs/xamarin-forms.png" width="200" />
+
+Thanks [@roubachof](https://github.com/roubachof) for this sample!
+
+## .NET MAUI Android Pixel 5
 
 ~327 per second in .NET 6 MAUI:
 
