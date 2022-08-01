@@ -61,8 +61,8 @@ public partial class MainPage : ContentPage
 						count++;
 					});
 
-            //NOTE: plain Android we could put 1
-			Thread.Sleep(2);
+			//NOTE: plain Android we could put 1
+			Thread.Sleep(4);
 		}
 
 		stopwatch.Stop();
