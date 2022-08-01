@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="lols.AppShell"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:lols"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    Shell.FlyoutBehavior="Disabled">
+
+    <ShellContent
+        Title=".NET MAUI"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+</Shell>
