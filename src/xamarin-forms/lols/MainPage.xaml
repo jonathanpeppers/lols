@@ -3,7 +3,8 @@
     x:Class="lols.MainPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
     Title="Xamarin.Forms 5"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="Black">
 
     <Grid>
         <Grid.RowDefinitions>
