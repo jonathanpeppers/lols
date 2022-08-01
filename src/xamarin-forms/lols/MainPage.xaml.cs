@@ -28,15 +28,15 @@ public partial class MainPage : ContentPage
 		_ = Task.Factory.StartNew(RunTest, TaskCreationOptions.LongRunning);
 	}
 
-    void OnTimer(object sender, System.Timers.ElapsedEventArgs e)
-    {
-        double avg = count / stopwatch.Elapsed.TotalSeconds;
-        string text = "LOL/s: " + avg.ToString("0.00", CultureInfo.InvariantCulture);
+	void OnTimer(object sender, System.Timers.ElapsedEventArgs e)
+	{
+		double avg = count / stopwatch.Elapsed.TotalSeconds;
+		string text = "LOL/s: " + avg.ToString("0.00", CultureInfo.InvariantCulture);
 
-        MainThread.BeginInvokeOnMainThread(() => UpdateText(text));
-    }
+		MainThread.BeginInvokeOnMainThread(() => UpdateText(text));
+	}
 
-    void UpdateText(string text) => lols.Text = text;
+	void UpdateText(string text) => lols.Text = text;
 
 	void RunTest()
 	{
@@ -52,14 +52,14 @@ public partial class MainPage : ContentPage
 			};
 			AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.PositionProportional);
 			AbsoluteLayout.SetLayoutBounds(label, new Rect(random.NextDouble(), random.NextDouble(), 80, 24));
-            MainThread.BeginInvokeOnMainThread(
-                () =>
-                    {
-                        if (absolute.Children.Count >= Max)
-                            absolute.Children.RemoveAt(0);
-                        absolute.Children.Add(label);
-                        count++;
-                    });
+			MainThread.BeginInvokeOnMainThread(
+				() =>
+					{
+						if (absolute.Children.Count >= Max)
+							absolute.Children.RemoveAt(0);
+						absolute.Children.Add(label);
+						count++;
+					});
 
             //NOTE: plain Android we could put 1
 			Thread.Sleep(2);
