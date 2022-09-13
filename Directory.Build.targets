@@ -1,0 +1,5 @@
+<Project>
+  <PropertyGroup>
+    <DisableTransitiveFrameworkReferenceDownloads>true</DisableTransitiveFrameworkReferenceDownloads>
+  </PropertyGroup>
+</Project>
