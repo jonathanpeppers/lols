@@ -58,6 +58,29 @@ Note that I was getting around 397 already in .NET 7 MAUI.
 
 <img src="docs/java.png" width="200" />
 
+## Notes on `Thead.Sleep()` calls
+
+Each sample has a `Thread.Sleep()` such as:
+
+```csharp
+while (count < 5000)
+{
+   // Do stuff
+   Thread.Sleep(1);
+}
+```
+
+I chose a number that the UI thread moved reasonably well visually on
+a Pixel 5 device. Some samples I had to put 2, 1, or even an `if
+(count % N == 0)` check.
+
+If the number is too low, you won't see the labels "move" and the UI
+will appear to freeze/lock up. If it looks smooth the number is
+probably OK.
+
+If the number is too high, you'll simply get a lower LOLs per second
+than what is possible.
+
 ## How does Flutter compare?
 
 A reported number is 12,255 per second:
