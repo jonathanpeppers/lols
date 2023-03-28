@@ -37,10 +37,9 @@ public partial class MainPage : ContentPage
 
 		while (count < 5000)
 		{
-			var label = new Label
+			var label = new Border
 			{
-				Text = "lol?",
-				TextColor = new Color(random.NextSingle(), random.NextSingle(), random.NextSingle()),
+				Background = new SolidColorBrush(new Color(random.NextSingle(), random.NextSingle(), random.NextSingle())),
 				Rotation = random.NextDouble() * 360
 			};
 			AbsoluteLayout.SetLayoutFlags(label, AbsoluteLayoutFlags.PositionProportional);
