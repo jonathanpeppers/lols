@@ -52,7 +52,7 @@ public partial class MainPage : ContentPage
 				count++;
 			});
 			//NOTE: plain Android we could put 1
-			Thread.Sleep(count % 2 == 0 ? 1 : 2);
+			Thread.Sleep(2);
 		}
 
 		stopwatch.Stop();
