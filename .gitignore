@@ -399,3 +399,7 @@ FodyWeavers.xsd
 
 # Xamarin.Android
 Resource.designer.cs
+
+# Output of scripts/compare-android.sh
+apks/
+results/
